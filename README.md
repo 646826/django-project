@@ -1,8 +1,6 @@
 # Django Project
 
-## First run
-> make build  
-> make init  
-
-## Run project 
-> make up   
+> make clear - remove source folder  
+> make prepare - django-admin startproject and copy etalon files   
+> make build - docker-compose build  
+> make up - ocker-compose -f ./docker-compose.yml up  
