@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.8-slim
 
 ENV PYTHONUNBUDERED 1
 
@@ -11,5 +11,5 @@ RUN mkdir /src
 WORKDIR /src
 COPY ./src /src
 
-RUN adduser -D user
+RUN adduser user
 USER user
