@@ -12,8 +12,8 @@ clear:
 prepare:
 	mkdir -p ${source_folder}
 	docker-compose run app sh -c "django-admin startproject ${app_name} ."
-	cp ./etalon_files/settings.py ./${source_folder}/${app_name}/
-	# cp ./etalon_files/.flake8 ./${source_folder}/
+	docker-compose run app sh -c "python manage.py migrate"
+	docker-compose run app sh -c "python manage.py createsuperuser"
 
 build:
 	docker-compose build
@@ -21,8 +21,6 @@ build:
 up:
 	docker-compose -f ./docker-compose.yml up
 
-create_super_user:
-	docker-compose run app sh -c "python manage.py createsuperuser"
 
 # cl:
 # 	docker stop $(docker ps -a -q)
